@@ -10,15 +10,6 @@ the post-meeting workflows. Transcripts are either seeded, pasted, or uploaded, 
 generated with **Groq**. I also added a deterministic mock fallback, so the app still works even if there's
 no API key set.
 
-> **Live demo**
-> - **App (Vercel):** https://frontend-nine-sage-spasdcz85x.vercel.app
-> - **API + Swagger docs (Render):** https://fireflies-clone-2g5d.onrender.com/docs
->
-> ⏱️ One heads-up: the backend is on Render's free tier, which sleeps after ~15 min of inactivity. The very
-> first request after it wakes up can take ~50 seconds, so give it a moment on first load.
-
----
-
 ## What you can do
 
 **The core stuff:**
