@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: `dark:` applies when a `.dark` ancestor exists. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --canvas: #f6f6fb;
+  --card: #ffffff;
+  --panel: #f1f1f8;
+  --line: #e7e7f0;
+  --ink: #1a1a2b;
+  --muted: #6b6b82;
+  --brand: #6d4aff;
+  --brand-strong: #5a34f0;
+  --brand-soft: #efeaff;
+  --brand-ink: #ffffff;
+  --top-gradient: linear-gradient(to right, #dce9f9 0%, #eaf2fc 30%, #fff5ef 70%, #feefe5 100%);
+}
+
+.dark {
+  --canvas: #0c0c13;
+  --card: #16161f;
+  --panel: #1e1e2b;
+  --line: #2a2a3a;
+  --ink: #ececf5;
+  --muted: #9a9ab2;
+  --brand: #927bff;
+  --brand-strong: #7c5cff;
+  --brand-soft: #241f3d;
+  --brand-ink: #ffffff;
+  --top-gradient: linear-gradient(to right, #16203a 0%, #12182a 35%, #1e1714 65%, #281c16 100%);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-card: var(--card);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Soft blue -> peach gradient across the top, fading into the canvas going down */
+.app-glow {
+  background:
+    linear-gradient(to bottom, transparent 0%, transparent 24%, var(--canvas) 64%),
+    var(--top-gradient),
+    var(--canvas);
+}
+
+/* Thin, theme-aware scrollbars for panels */
+.scroll-slim::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Search highlight */
+mark.hl {
+  background: #fde68a;
+  color: #1a1a2b;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+.dark mark.hl {
+  background: #b8860b;
+  color: #fff;
+}
